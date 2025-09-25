@@ -8,7 +8,7 @@ class Solution {
 public:
   // 1. Brute force approach
   // Time: O(n), Space: O(1)
-  bool checkPerfectNumberBrute(int num) {
+  bool Solution1(int num) {
     if (num <= 1)
       return false;
     int sum = 0;
@@ -21,7 +21,7 @@ public:
 
   // 2. Optimized divisor check (sqrt approach)
   // Time: O(sqrt(n)), Space: O(1)
-  bool checkPerfectNumberSqrt(int num) {
+  bool Solution2(int num) {
     if (num <= 1)
       return false;
     int sum = 1;
@@ -38,7 +38,7 @@ public:
 
   // 3. Euclid–Euler theorem approach
   // Time: O(1), Space: O(1)
-  bool checkPerfectNumberEuler(int num) {
+  bool Solution3(int num) {
     if (num <= 1)
       return false;
     // Known perfect numbers from Euclid–Euler theorem within 1e8
@@ -52,7 +52,7 @@ public:
 
   // 4. Precomputed Set
   // Time: O(1), Space: O(1)
-  bool checkPerfectNumberPrecomputed(int num) {
+  bool Solution4(int num) {
     static unordered_set<int> perfectNums = {6, 28, 496, 8128, 33550336};
     return perfectNums.find(num) != perfectNums.end();
   }
@@ -61,9 +61,9 @@ public:
 int main() {
   Solution sol;
   cout << boolalpha;
-  cout << sol.checkPerfectNumberBrute(28) << "\n";      // true
-  cout << sol.checkPerfectNumberSqrt(28) << "\n";       // true
-  cout << sol.checkPerfectNumberEuler(8128) << "\n";    // true
-  cout << sol.checkPerfectNumberPrecomputed(7) << "\n"; // false
+  cout << sol.Solution1(28) << "\n";   // true
+  cout << sol.Solution2(28) << "\n";   // true
+  cout << sol.Solution3(8128) << "\n"; // true
+  cout << sol.Solution4(7) << "\n";    // false
   return 0;
 }
