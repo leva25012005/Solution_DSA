@@ -8,7 +8,7 @@ class Solution {
 public:
   // 1. Iterative Division
   // Time: O(log n), Space: O(1)
-  bool isUglyIterative(int n) {
+  bool Solution1(int n) {
     if (n <= 0)
       return false;
     while (n % 2 == 0)
@@ -22,23 +22,23 @@ public:
 
   // 2. Recursive Division
   // Time: O(log n), Space: O(log n)  (stack depth)
-  bool isUglyRecursive(int n) {
+  bool Solution2(int n) {
     if (n <= 0)
       return false;
     if (n == 1)
       return true;
     if (n % 2 == 0)
-      return isUglyRecursive(n / 2);
+      return Solution2(n / 2);
     if (n % 3 == 0)
-      return isUglyRecursive(n / 3);
+      return Solution2(n / 3);
     if (n % 5 == 0)
-      return isUglyRecursive(n / 5);
+      return Solution2(n / 5);
     return false;
   }
 
   // 3. Prime Factorization
   // Time: O(sqrt(n)), Space: O(1)
-  bool isUglyFactorization(int n) {
+  bool Solution3(int n) {
     if (n <= 0)
       return false;
     for (int p = 2; p * p <= n; p++) {
@@ -53,7 +53,7 @@ public:
 
   // 4. Logarithm Check (not practical, demo only)
   // Time: O(log n), Space: O(1)
-  bool isUglyLogarithm(int n) {
+  bool Solution4(int n) {
     if (n <= 0)
       return false;
     // Remove factors of 2, 3, 5
@@ -70,9 +70,9 @@ public:
 int main() {
   Solution sol;
   cout << boolalpha;
-  cout << sol.isUglyIterative(6) << "\n";      // true
-  cout << sol.isUglyRecursive(1) << "\n";      // true
-  cout << sol.isUglyFactorization(14) << "\n"; // false
-  cout << sol.isUglyLogarithm(8) << "\n";      // true
+  cout << sol.Solution1(6) << "\n";  // true
+  cout << sol.Solution2(1) << "\n";  // true
+  cout << sol.Solution3(14) << "\n"; // false
+  cout << sol.Solution4(8) << "\n";  // true
   return 0;
 }
