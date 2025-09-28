@@ -31,14 +31,6 @@ public:
     return n;
   }
 
-  // 3. Mathematical formula (digital root)
-  // Time: O(1), Space: O(1)
-  int Solution3(int n) {
-    if (n == 0)
-      return 0;
-    return 1 + (n - 1) % 9;
-  }
-
   // 4. String-based approach
   // Time: O(log n), Space: O(log n)
   int Solution4(int n) {
@@ -57,7 +49,6 @@ int main() {
   Solution sol;
   cout << sol.Solution1(1234) << "\n"; // 1
   cout << sol.Solution2(9999) << "\n"; // 9
-  cout << sol.Solution3(1234) << "\n"; // 1
   cout << sol.Solution4(9999) << "\n"; // 9
   return 0;
 }
